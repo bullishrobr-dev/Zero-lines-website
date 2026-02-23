@@ -1,26 +1,168 @@
 @import "tailwindcss";
 
+/* ============================================================
+   ZERO LINES — Premium Design Token System
+   Generous whitespace · Refined typography · Luxury rhythm
+   ============================================================ */
+
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  /* Animation */
+  --ease-luxury: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-subtle: cubic-bezier(0.25, 0.1, 0.25, 1);
+  --duration-fast: 300ms;
+  --duration-base: 600ms;
+  --duration-slow: 1000ms;
+  --duration-reveal: 1400ms;
 }
+
+/* ============================================================
+   Tailwind v4 Theme — Premium spacing & type
+   ============================================================ */
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  /* Colors */
+  --color-primary: rgb(10 186 181);
+  --color-primary-light: rgb(10 186 181 / 0.12);
+  --color-primary-muted: rgb(10 186 181 / 0.6);
+  --color-secondary: rgb(26 26 26);
+  --color-silver: rgb(192 192 200);
+  --color-silver-light: rgb(235 235 240);
+  --color-surface: rgb(255 255 255);
+  --color-surface-muted: rgb(249 249 251);
+  --color-text-primary: rgb(26 26 26);
+  --color-text-muted: rgb(100 100 110);
+  --color-border: rgb(228 228 234);
+
+  /* Font */
+  --font-sans: "Inter", system-ui, -apple-system, sans-serif;
+
+  /* Typography — 9 levels, generous line-height for readability */
+  --text-display: 5rem;
+  --text-display--line-height: 1.05;
+  --text-display--font-weight: 300;
+
+  --text-h1: 3.75rem;
+  --text-h1--line-height: 1.1;
+  --text-h1--font-weight: 300;
+
+  --text-h2: 2.75rem;
+  --text-h2--line-height: 1.15;
+  --text-h2--font-weight: 400;
+
+  --text-h3: 2.25rem;
+  --text-h3--line-height: 1.2;
+  --text-h3--font-weight: 400;
+
+  --text-h4: 1.5rem;
+  --text-h4--line-height: 1.3;
+  --text-h4--font-weight: 500;
+
+  --text-h5: 1.25rem;
+  --text-h5--line-height: 1.4;
+  --text-h5--font-weight: 500;
+
+  --text-body-lg: 1.3125rem;
+  --text-body-lg--line-height: 1.75;
+  --text-body-lg--font-weight: 400;
+
+  --text-body: 1.125rem;
+  --text-body--line-height: 1.8;
+  --text-body--font-weight: 400;
+
+  --text-caption: 0.9375rem;
+  --text-caption--line-height: 1.55;
+  --text-caption--font-weight: 400;
+
+  /* Section spacing — luxury vertical rhythm (use py-section, py-section-lg) */
+  --spacing-section: 14rem;
+  --spacing-section-lg: 20rem;
+  --spacing-block: 8rem;
+  --spacing-element: 4rem;
+  --spacing-nav: 6rem;
+  --spacing-page-top: 7rem;
+
+  /* Animation */
+  --ease-luxury: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-subtle: cubic-bezier(0.25, 0.1, 0.25, 1);
+  --duration-fast: 300ms;
+  --duration-base: 600ms;
+  --duration-slow: 1000ms;
+  --duration-reveal: 1400ms;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+/* ============================================================
+   Base · Premium typography defaults
+   ============================================================ */
+
+html {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+  scroll-behavior: smooth;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  text-wrap: balance;
+  letter-spacing: -0.025em;
+}
+
+p {
+  text-wrap: pretty;
+}
+
+/* Readable line length for body copy */
+.prose-width {
+  max-width: 42rem;
+}
+
+.prose-width-lg {
+  max-width: 48rem;
+}
+
+/* ============================================================
+   Accessibility
+   ============================================================ */
+
+.skip-to-content {
+  position: absolute;
+  top: -100%;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 9999;
+  padding: 0.75rem 1.5rem;
+  background: rgb(26 26 26);
+  color: white;
+  font-weight: 500;
+  border-radius: 0 0 0.5rem 0.5rem;
+  transition: top 300ms cubic-bezier(0.25, 0.1, 0.25, 1);
+}
+
+.skip-to-content:focus {
+  top: 0;
+  outline: 2px solid rgb(10 186 181);
+  outline-offset: 2px;
+}
+
+:focus-visible {
+  outline: 2px solid rgb(10 186 181);
+  outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+::selection {
+  background: rgb(10 186 181 / 0.2);
+  color: rgb(26 26 26);
 }
+
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: rgb(192 192 200); border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: rgb(120 120 130); }
