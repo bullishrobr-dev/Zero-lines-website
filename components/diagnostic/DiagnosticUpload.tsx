@@ -236,13 +236,13 @@ export default function DiagnosticUpload() {
               ) : (
                 <>
                   <p className="text-body font-medium text-secondary text-center">
-                    Drop your photo here
+                    Upload your photo
                   </p>
                   <p
                     id={`${inputId}-help`}
-                    className="text-caption text-text-muted text-center"
+                    className="text-caption text-text-muted text-center max-w-xs"
                   >
-                    JPG, PNG, or WebP &middot; Max {MAX_SIZE_MB}MB
+                    Natural light. No makeup. Front-facing. Clear image. JPG, PNG, or WebP &middot; Max {MAX_SIZE_MB}MB
                   </p>
                 </>
               )}
@@ -250,7 +250,7 @@ export default function DiagnosticUpload() {
               <span className="inline-flex items-center h-11 px-7 bg-surface-muted text-[0.8125rem] font-medium tracking-[0.04em] uppercase text-secondary hover:bg-primary hover:text-white transition-colors rounded-sm"
                 style={{ transitionDuration: "var(--duration-fast)" }}
               >
-                {state === "error" ? "Try Again" : "Select File"}
+                {state === "error" ? "Try Again" : "Begin My Analysis"}
               </span>
             </motion.div>
           )}

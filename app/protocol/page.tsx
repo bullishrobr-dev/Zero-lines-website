@@ -1,60 +1,59 @@
 import type { Metadata } from "next";
-import ProtocolGrid from "@/components/sections/ProtocolGrid";
+import CinematicScrollProtocol from "@/components/sections/CinematicScrollProtocol";
 
 export const metadata: Metadata = {
   title: "The Longevity Protocol",
   description:
-    "Six precision formulations engineered for measurable skin longevity outcomes. Explore the complete Zero Lines activation protocol.",
+    "Skincare protocol and skin longevity protocol. Six precision formulations in a clinical skincare routine. Luxury skincare system engineered for measurable activation.",
 };
 
 export default function ProtocolPage() {
   return (
     <>
-      <section className="pt-48 pb-24 lg:pt-56 lg:pb-32">
+      <section className="pt-48 pb-16 lg:pt-56 lg:pb-24">
         <div className="mx-auto max-w-[1440px] px-8 lg:px-16">
           <h1 className="text-h1 font-light tracking-tight text-secondary max-w-3xl">
             The Longevity Protocol
           </h1>
           <p className="mt-10 text-body-lg text-text-muted max-w-2xl leading-relaxed">
-            An integrated system of six precision formulations.
-            Each product is a phase in a continuous activation cycle —
-            not isolated treatments, but a coordinated protocol
-            engineered for compounding results.
+            Six precision formulations. One integrated activation system.
+          </p>
+          <p className="mt-6 text-body text-text-muted max-w-2xl leading-relaxed">
+            Zero Lines is not a collection of products. It is a sequenced, clinical-grade protocol — where each formulation performs a specific biological function, and every step amplifies the next. This is what separates a skincare routine from a longevity protocol.
           </p>
         </div>
       </section>
 
-      <ProtocolGrid showHeading={false} />
+      <CinematicScrollProtocol showHeading={false} />
 
       <section className="py-28 lg:py-40 bg-surface-muted">
         <div className="mx-auto max-w-[1440px] px-8 lg:px-16">
-          <div className="max-w-3xl">
-            <h2 className="text-h2 font-light tracking-tight text-secondary">
-              Protocol Sequencing
-            </h2>
-            <p className="mt-10 text-body-lg text-text-muted leading-relaxed">
-              Morning activation. Evening restoration. Weekly recalibration.
-              The protocol follows your skin&rsquo;s circadian biology for
-              optimal molecular timing.
-            </p>
-          </div>
+          <h2 className="text-h2 font-light tracking-tight text-secondary">
+            Why Protocol Sequencing Matters
+          </h2>
+          <p className="mt-10 max-w-3xl text-body-lg text-text-muted leading-relaxed">
+            Ingredient bioavailability is determined by how and when it is applied, not just what it contains. A serum applied to unprepared skin penetrates a fraction of the depth it would on properly reset skin. A repair compound applied before the mineral complex cannot reach its target.
+          </p>
+          <p className="mt-6 max-w-3xl text-body text-text-muted leading-relaxed">
+            Zero Lines was engineered with this sequencing logic at its core. The order is not arbitrary — it is clinically derived.
+          </p>
 
           <div className="mt-24 grid grid-cols-1 md:grid-cols-2 gap-16">
             {[
               {
-                phase: "AM Protocol",
+                phase: "Reset, Activate & Signal",
                 steps: [
-                  "The Serum — Molecular activation base",
-                  "Day Cream — UV-shield barrier protocol",
-                  "The Syringe — Targeted precision delivery (3x/week)",
+                  "Peeling Gel — Canvas recalibration (once weekly)",
+                  "The Syringe — Precision collagen activation (once weekly, post-peel)",
+                  "The Serum — Molecular messenger (daily, morning and evening)",
                 ],
               },
               {
-                phase: "PM Protocol",
+                phase: "Defend, Restore & Sustain",
                 steps: [
-                  "Peeling Gel — Enzymatic renewal (2x/week)",
-                  "The Serum — Evening activation layer",
-                  "Night Cream — Nocturnal cellular restoration",
+                  "Day Cream — Environmental shield (daily, morning, after Serum)",
+                  "Night Cream — Nocturnal repair (nightly, after Serum)",
+                  "Syringe Refill — 12-month continuity (replace when depleted)",
                 ],
               },
             ].map((protocol) => (

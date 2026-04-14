@@ -30,7 +30,7 @@ function ProductCard({
       <Link href={`/products/${product.slug}`} className="block">
         <div
           className={cn(
-            "relative overflow-hidden bg-surface-muted",
+            "relative overflow-hidden rounded-[1.75rem] border border-border/60 bg-[linear-gradient(180deg,#f7fbfb_0%,#edf7f6_52%,#f8f8f8_100%)] shadow-[0_24px_80px_rgba(15,23,42,0.1)]",
             featured ? "aspect-[4/5]" : "aspect-[3/4]"
           )}
         >
@@ -39,9 +39,9 @@ function ProductCard({
             alt={product.name}
             fill
             sizes={featured ? "(max-width: 768px) 100vw, 66vw" : "(max-width: 768px) 100vw, 33vw"}
-            className="object-cover transition-transform duration-700 ease-out group-hover:scale-[1.02]"
+            className="object-contain p-8 transition-transform duration-700 ease-out group-hover:scale-[1.02]"
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-secondary/25 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_24%,rgba(10,186,181,0.14),transparent_40%)] opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
         </div>
 
         <div className="mt-8">

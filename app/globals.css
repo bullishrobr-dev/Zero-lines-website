@@ -166,3 +166,35 @@ p {
 ::-webkit-scrollbar-track { background: transparent; }
 ::-webkit-scrollbar-thumb { background: rgb(192 192 200); border-radius: 3px; }
 ::-webkit-scrollbar-thumb:hover { background: rgb(120 120 130); }
+
+/* Premium button hover — slow inversion (Tiffany ↔ Charcoal) */
+.btn-premium {
+  transition:
+    background-color 0.7s cubic-bezier(0.16, 1, 0.3, 1),
+    color 0.7s cubic-bezier(0.16, 1, 0.3, 1),
+    border-color 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.btn-premium:hover {
+  background-color: rgb(10 186 181);
+  color: white;
+  border-color: rgb(10 186 181);
+}
+.btn-premium-outline:hover {
+  background-color: rgb(26 26 26);
+  color: white;
+}
+
+/* Scroll-triggered theme (Narrative Color Blocking) */
+.scroll-theme-wrapper[data-theme="dark"] {
+  --color-surface: rgb(26 26 26);
+  --color-surface-muted: rgb(38 38 38);
+  --color-secondary: rgb(255 255 255);
+  --color-text-primary: rgb(255 255 255);
+  --color-text-muted: rgb(255 255 255 / 0.78);
+  --color-border: rgb(255 255 255 / 0.2);
+  --color-silver: rgb(160 160 170);
+  --color-silver-light: rgb(60 60 65);
+  /* Slightly brighter primary on dark for nav link contrast */
+  --color-primary: rgb(14 218 213);
+  --color-primary-muted: rgb(14 218 213 / 0.75);
+}

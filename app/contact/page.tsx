@@ -3,7 +3,7 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: "Contact",
   description:
-    "Reach the Zero Lines team for protocol consultations, partnership inquiries, and support.",
+    "Zero Lines contact. Protocol consultations, clinical partnership inquiries, press, and luxury skincare inquiry.",
 };
 
 export default function ContactPage() {
@@ -12,11 +12,10 @@ export default function ContactPage() {
       <div className="mx-auto max-w-[1440px] px-8 lg:px-16">
         <div className="max-w-3xl">
           <h1 className="text-h1 font-light tracking-tight text-secondary">
-            Contact
+            Get in Touch
           </h1>
           <p className="mt-10 text-body-lg text-text-muted leading-relaxed">
-            For protocol consultations, partnership inquiries,
-            or clinical collaboration proposals.
+            For protocol consultations, clinical partnership inquiries, press, and wholesale.
           </p>
         </div>
 
@@ -69,10 +68,11 @@ export default function ContactPage() {
               >
                 <option value="" disabled>Select a topic</option>
                 <option value="protocol">Protocol Consultation</option>
-                <option value="partnership">Partnership Inquiry</option>
-                <option value="clinical">Clinical Collaboration</option>
+                <option value="partnership">Partnership</option>
                 <option value="press">Press &amp; Media</option>
-                <option value="support">General Support</option>
+                <option value="wholesale">Wholesale</option>
+                <option value="clinical">Clinical Collaboration</option>
+                <option value="other">Other</option>
               </select>
             </div>
 
@@ -94,7 +94,7 @@ export default function ContactPage() {
 
             <button
               type="submit"
-              className="inline-flex items-center justify-center h-14 px-12 bg-secondary text-white text-[0.875rem] font-medium tracking-[0.06em] uppercase hover:bg-primary transition-colors duration-300 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
+              className="btn-premium inline-flex items-center justify-center h-14 px-12 bg-secondary text-white text-[0.875rem] font-medium tracking-[0.06em] uppercase focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
             >
               Send Inquiry
             </button>
@@ -103,31 +103,20 @@ export default function ContactPage() {
           <div className="space-y-16 lg:pt-2">
             <div>
               <h2 className="text-h4 font-light tracking-tight text-secondary">
-                Headquarters
+                Response Commitment
               </h2>
               <p className="mt-5 text-body text-text-muted leading-relaxed">
-                Andorra la Vella<br />
-                Principality of Andorra
+                All inquiries receive a response within 48 business hours. Protocol consultations are scheduled within 5 business days.
               </p>
             </div>
 
             <div>
               <h2 className="text-h4 font-light tracking-tight text-secondary">
-                Research Lab
+                Contact
               </h2>
               <p className="mt-5 text-body text-text-muted leading-relaxed">
-                Barcelona Biomedical Research Park<br />
-                Barcelona, Spain
-              </p>
-            </div>
-
-            <div>
-              <h2 className="text-h4 font-light tracking-tight text-secondary">
-                Response Time
-              </h2>
-              <p className="mt-5 text-body text-text-muted leading-relaxed">
-                We respond to all inquiries within 48 hours.
-                Protocol consultations are scheduled within 5 business days.
+                Email: info@zerolines.life<br />
+                Location: 61 / 247 main st Gibraltar
               </p>
             </div>
           </div>

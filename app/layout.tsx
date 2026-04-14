@@ -1,8 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import { inter } from "@/lib/fonts";
 import { SITE_NAME, SITE_DESCRIPTION, SITE_URL } from "@/lib/constants";
-import PrestigeNavbar from "@/components/layout/PrestigeNavbar";
-import Footer from "@/components/layout/Footer";
+import AppShell from "@/components/layout/AppShell";
 import "./globals.css";
 
 export const metadata: Metadata = {
@@ -44,9 +43,7 @@ export default function RootLayout({
         <a href="#main-content" className="skip-to-content">
           Skip to content
         </a>
-        <PrestigeNavbar />
-        <main id="main-content">{children}</main>
-        <Footer />
+        <AppShell>{children}</AppShell>
       </body>
     </html>
   );

@@ -2,9 +2,9 @@ import type { Metadata } from "next";
 import DiagnosticUpload from "@/components/diagnostic/DiagnosticUpload";
 
 export const metadata: Metadata = {
-  title: "Skin Diagnostic",
+  title: "Your Skin. Your Protocol.",
   description:
-    "AI-powered skin analysis for personalized longevity protocol recommendations. Upload a photo to begin your diagnostic.",
+    "Skin analysis tool and AI skin diagnostic. Personalized skincare protocol and skin longevity assessment. Clinical-grade analysis for your unique biology.",
 };
 
 export default function DiagnosticPage() {
@@ -13,12 +13,13 @@ export default function DiagnosticPage() {
       <section className="pt-48 pb-24 lg:pt-56 lg:pb-32">
         <div className="mx-auto max-w-[1440px] px-8 lg:px-16 text-center">
           <h1 className="text-h1 font-light tracking-tight text-secondary">
-            Skin Diagnostic
+            Your Skin. Your Protocol.
           </h1>
           <p className="mt-10 mx-auto text-body-lg text-text-muted max-w-2xl leading-relaxed">
-            AI-powered photo analysis maps your skin&rsquo;s current state
-            across 12 biomarker categories. The result: a personalized
-            longevity protocol calibrated to your biology.
+            Every face is structurally different. Your longevity protocol should be too.
+          </p>
+          <p className="mt-6 mx-auto text-body text-text-muted max-w-2xl leading-relaxed">
+            The Zero Lines Diagnostic is a clinical-grade skin analysis tool that maps your specific skin structure, concerns, and longevity priorities — and outputs a personalised protocol recommendation engineered for your unique biology.
           </p>
         </div>
       </section>
@@ -32,25 +33,25 @@ export default function DiagnosticPage() {
       <section className="py-28 lg:py-40 bg-surface-muted">
         <div className="mx-auto max-w-[1440px] px-8 lg:px-16">
           <h2 className="text-h2 font-light tracking-tight text-secondary text-center mb-20">
-            How It Works
+            The Analysis Process
           </h2>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-16 lg:gap-20">
             {[
               {
                 step: "01",
-                title: "Capture",
-                text: "Upload a clear, well-lit photograph. Our system analyzes facial topology, texture microstructure, and chromatic indicators.",
+                title: "Upload",
+                text: "Upload a clear, natural-light photograph of your face — no makeup, no filter, no flash.",
               },
               {
                 step: "02",
-                title: "Analyze",
-                text: "12 biomarker categories are evaluated including barrier integrity, collagen density indicators, melanin distribution, and vascular patterns.",
+                title: "Assess",
+                text: "Complete the Skin Intelligence Assessment covering your primary concerns, current routine, environment, and skin history. Our clinical analysis engine maps your structural indicators — surface tension distribution, volumetric irregularity, barrier condition, and tone uniformity.",
               },
               {
                 step: "03",
-                title: "Prescribe",
-                text: "Receive a personalized activation protocol — product selection, application sequencing, and device parameters calibrated to your diagnostic profile.",
+                title: "Receive",
+                text: "Receive your personalised Zero Lines Longevity Protocol recommendation — the specific products, sequence, and device integration relevant to your skin's current biological state.",
               },
             ].map((item) => (
               <div key={item.step}>
@@ -64,6 +65,10 @@ export default function DiagnosticPage() {
               </div>
             ))}
           </div>
+
+          <p className="mt-20 text-body text-text-muted text-center max-w-2xl mx-auto leading-relaxed">
+            The Zero Lines Diagnostic is an AI-assisted assessment tool. It does not constitute medical advice and is not a substitute for clinical dermatological consultation.
+          </p>
         </div>
       </section>
     </>

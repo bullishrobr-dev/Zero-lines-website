@@ -2,8 +2,15 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { PRODUCTS, PRODUCT_SLUGS } from "@/lib/constants";
+import { PRODUCTS, PRODUCT_SLUGS, SITE_URL } from "@/lib/constants";
 import TechSpecsAccordion from "@/components/sections/TechSpecsAccordion";
+import SyringePDP from "@/components/products/SyringePDP";
+import PeelingGelPDP from "@/components/products/PeelingGelPDP";
+import SerumPDP from "@/components/products/SerumPDP";
+import DayCreamPDP from "@/components/products/DayCreamPDP";
+import NightCreamPDP from "@/components/products/NightCreamPDP";
+import SyringeRefillPDP from "@/components/products/SyringeRefillPDP";
+import ProtocolSequencingStrip from "@/components/products/ProtocolSequencingStrip";
 import type { AccordionItem } from "@/components/sections/TechSpecsAccordion";
 
 interface ProductPageProps {
@@ -21,13 +28,34 @@ export async function generateMetadata({
   const product = PRODUCTS.find((p) => p.slug === slug);
   if (!product) return {};
 
+  const isSyringe = slug === "syringe";
+  const isPeelingGel = slug === "peeling-gel";
+  const isSerum = slug === "serum";
+  const isDayCream = slug === "day-cream";
+  const isNightCream = slug === "night-cream";
+  const isRefill = slug === "syringe-refill";
+  const title = product.name;
+  const description = isSyringe
+    ? "Precision Collagen Activation Syringe. 50-application protocol. PDRN, PRNS minerals, neuro-peptides. Flash application or longevity protocol."
+    : isPeelingGel
+      ? "Biomimetic Renewal Gel. Step 01: The Reset. Smart-enzyme canvas reset for 52 weeks. Zero abrasion, dual-climate minerals."
+      : isSerum
+        ? "Step 03: The Serum. High-velocity bio-signal delivery. Molecular messenger for the protocol—peptides and actives that reach the dermal-epidermal junction."
+        : isDayCream
+          ? "Step 04: Day Cream. Environmental shield and active barrier. Light, luminous finish—locks in the morning protocol from first light until evening."
+          : isNightCream
+            ? "Step 05: Night Cream. Nocturnal repair activation. Circadian restoration—richer, restorative matrix for overnight renewal."
+            : isRefill
+              ? "Step 06: Syringe Refill. Fair price, same excellence. Continuity for the protocol—no extortion, just lasting luxury."
+              : product.tagline;
+
   return {
     title: product.name,
-    description: product.tagline,
+    description,
     openGraph: {
-      title: `${product.name} | Zero Lines`,
-      description: product.tagline,
-      images: [{ url: product.image }],
+      title: `${title} | Zero Lines`,
+      description,
+      images: [{ url: product.image.startsWith("http") ? product.image : `${SITE_URL}${product.image}` }],
     },
   };
 }
@@ -79,6 +107,13 @@ export default async function ProductPage({ params }: ProductPageProps) {
     notFound();
   }
 
+  if (slug === "syringe") return <SyringePDP />;
+  if (slug === "peeling-gel") return <PeelingGelPDP />;
+  if (slug === "serum") return <SerumPDP />;
+  if (slug === "day-cream") return <DayCreamPDP />;
+  if (slug === "night-cream") return <NightCreamPDP />;
+  if (slug === "syringe-refill") return <SyringeRefillPDP />;
+
   return (
     <>
       <section className="pt-48 lg:pt-56 pb-24 lg:pb-32">
@@ -109,13 +144,13 @@ export default async function ProductPage({ params }: ProductPageProps) {
               <div className="mt-14 flex flex-col gap-6">
                 <Link
                   href="/pre-launch"
-                  className="inline-flex items-center justify-center h-14 px-12 bg-secondary text-white text-[0.875rem] font-medium tracking-[0.06em] uppercase hover:bg-primary transition-colors duration-300"
+                  className="btn-premium inline-flex items-center justify-center h-14 px-12 bg-secondary text-white text-[0.875rem] font-medium tracking-[0.06em] uppercase"
                 >
                   Reserve — Early Access
                 </Link>
                 <Link
                   href="/diagnostic"
-                  className="inline-flex items-center justify-center h-14 px-12 border border-border text-secondary text-[0.875rem] font-medium tracking-[0.06em] uppercase hover:border-primary hover:text-primary transition-colors duration-300"
+                  className="btn-premium inline-flex items-center justify-center h-14 px-12 border border-border text-secondary text-[0.875rem] font-medium tracking-[0.06em] uppercase hover:border-primary hover:text-primary"
                 >
                   Find Your Protocol
                 </Link>
@@ -134,6 +169,11 @@ export default async function ProductPage({ params }: ProductPageProps) {
         </div>
       </section>
 
+      <ProtocolSequencingStrip
+        highlightStep={Math.max(1, PRODUCTS.findIndex((p) => p.slug === slug) + 1)}
+        stripText="Part of the Zero Lines Protocol. Explore each step below."
+      />
+
       <section className="py-28 lg:py-40">
         <div className="mx-auto max-w-[1440px] px-8 lg:px-16 text-center">
           <h2 className="text-h2 font-light tracking-tight text-secondary">
@@ -147,7 +187,7 @@ export default async function ProductPage({ params }: ProductPageProps) {
           <div className="mt-14">
             <Link
               href="/protocol"
-              className="inline-flex items-center h-14 px-14 bg-secondary text-white text-[0.875rem] font-medium tracking-[0.06em] uppercase hover:bg-primary transition-colors duration-300"
+              className="btn-premium inline-flex items-center h-14 px-14 bg-secondary text-white text-[0.875rem] font-medium tracking-[0.06em] uppercase"
             >
               View Full Protocol
             </Link>
